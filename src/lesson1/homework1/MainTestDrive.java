@@ -2,13 +2,29 @@ package lesson1.homework1;
 
 public class MainTestDrive {
     public static void main(String[] args) {
-        Cat cat = new Cat("Barsik", 200, 4);
-        Human human = new Human("Jhonson", 800, 3);
-        Robot robot = new Robot("Baymax", 900, 5);
 
-        cat.printActionCat();
-        human.printActionHuman();
-        robot.printActionRobot();
+        Rivals[] user = {
+            new Human("Zak"),
+            new Robot("Beimax"),
+            new Cat( "Cat","Barsick")
+        };
 
+        Obstacle[] obstacles = {
+                new RunnigTrack(3000),
+                new Wall(3)
+        };
+
+        for (Rivals rival : user){
+            for (Obstacle o : obstacles) {
+                o.doIt(rival);
+                if(!rival.isDistance()){
+                    break;
+                }
+            }
+        }
+
+        for ( Rivals rival : user) {
+            rival.info();
+        }
     }
 }
