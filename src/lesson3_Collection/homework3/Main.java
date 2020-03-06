@@ -1,5 +1,7 @@
 package lesson3_Collection.homework3;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.*;
 
 /*
@@ -24,8 +26,23 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        List<String> name = Arrays.asList(
+                "Fred", "Jordan", "Nigan", "Jin",
+                "Van", "Adam", "Jordan", "Carl",
+                "Jin", "Martin", "Wade", "Wilson",
+                "Fred", "Jordan", "Nigan", "Jin",
+                "Van", "Wade", "Jordan", "Carl",
+                "Jin", "Martin", "Wade", "Wilson"
+        );
 
+        Set<String> unique = new HashSet<String>(name);
+        System.out.println("Выводим массив имён");
+        System.out.println(name.toString());
+        System.out.println("Выводим уникальные имена");
+        System.out.println(unique.toString());
+        System.out.println("Колличество встречаемости имён");
+        for (String key : unique) {
+            System.out.println(key + ": " + Collections.frequency(name, key));
+        }
     }
-
-
 }
